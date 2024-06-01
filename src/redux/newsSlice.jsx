@@ -20,7 +20,9 @@ export const newsSlice = createSlice({
   name: "news",
   initialState,
   reducers: {
-    setNewsData: () => {},
+    clearNewsData: (state) => {
+        state.newsData = []
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(getNews.pending, (state, action)=> {
@@ -35,7 +37,7 @@ export const newsSlice = createSlice({
   }
 });
 
-export const {} = newsSlice.actions;
+export const { clearNewsData } = newsSlice.actions;
 export default newsSlice.reducer;
 
 // rxslice

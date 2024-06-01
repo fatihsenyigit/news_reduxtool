@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { clearUser } from "../redux/loginSlice";
 
+
 const Navbar = () => {
   const navigate = useNavigate()
   const {user} = useSelector((state)=> state.login)

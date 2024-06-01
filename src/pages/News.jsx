@@ -9,12 +9,16 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getNews } from "../redux/newsSlice";
 import loadingGif from '../assets/loading.gif'
+import { clearNewsData } from "../redux/newsSlice";
 
 const News = () => {
   const dispatch = useDispatch()
   const {newsData, loading, error} = useSelector((state)=> state.news)
   useEffect(() => {
     dispatch(getNews())
+    return ()=> {
+      dispatch(clearNewsData())
+    }
   }, [])
   
   return (

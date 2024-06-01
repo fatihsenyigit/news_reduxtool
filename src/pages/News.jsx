@@ -5,8 +5,16 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/material";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getNews } from "../redux/newsSlice";
 
 const News = () => {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getNews())
+  }, [])
+  
   return (
     <>
       <h1>News</h1>

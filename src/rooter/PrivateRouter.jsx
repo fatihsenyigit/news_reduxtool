@@ -7,7 +7,7 @@ const PrivateRouter = () => {
   // const user = useSelector((state)=> state.login.user)
   const { user } = useSelector((state) => state.login);
 
-  return user.mail && user.password ? <Outlet/> : <Navigate to='/login'/>
+  return user?.email && user?.password ? <Outlet/> : <Navigate to='/login'/>
 }
 
-export default PrivateRouter
+export default PrivateRouter 

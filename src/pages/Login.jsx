@@ -1,15 +1,26 @@
-import { Avatar, Box, Button, Container, Link, TextField, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Button,
+  Container,
+  Link,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setUser } from "../redux/loginSlice";
 
 const Login = () => {
-     const [email, setEmail] = useState("");
-     const [password, setPassword] = useState("");
-
-       const handleSubmit = (e) => {
-         e.preventDefault();
-         setEmail("");
-         setPassword("");
-       };
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(setUser({ email, password }));
+    setEmail("");
+    setPassword("");
+  };
   return (
     <Container component="main" maxWidth="xs">
       <Box
